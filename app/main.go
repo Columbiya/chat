@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"os"
 	"zbchat/app/db"
+	websocket_http "zbchat/app/modules/http"
 
 	"github.com/joho/godotenv"
 )
@@ -15,9 +14,7 @@ func init() {
 }
 
 func main() {
-	fmt.Println("123")
-
-	fmt.Println(os.Getenv("HOST"))
-
 	db.Connect()
+
+	websocket_http.Serve()
 }

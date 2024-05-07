@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5001:3333"
+    command: ./zbchat
+    develop:
+      watch:
+        - action: rebuild
+          path: main.go
+          target: /app/main.go
+        - action: rebuild
+          path: go.mod
+        - action: rebuild
+          path: ./src
+          target: /app/src
